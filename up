@@ -10,11 +10,15 @@ fi
 ln -s $SCRIPTPATH/down /tmp/leftwm-theme-down
 
 
+sh $HOME/.screenlayout/pc.sh
+
 #boot picom or compton if it exists
 if [ -x "$(command -v picom)" ]; then
-  picom &> /dev/null &
-elif [ -x "$(command -v compton)" ]; then
-  compton &> /dev/null &
+  killall picom
+  picom --shadow-exclude argb -b -f &> /dev/null &
+fi
+if [ -x s"$(command -v wired)" ]; then
+  wired
 fi
 
 #set the theme.ron config
@@ -22,9 +26,8 @@ leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 #set background
 if [ -x "$(command -v feh)" ]; then
-  feh --bg-scale $SCRIPTPATH/wallhaven-96wje1_1920x1080.png
+  feh --bg-fill $HOME/.screenlayout/wallpapers/hor/0.jpg $HOME/.screenlayout/wallpapers/vert/0.jpg
 fi
-
 
 index=0
 monitors="$(polybar -m | sed s/:.*//)"
