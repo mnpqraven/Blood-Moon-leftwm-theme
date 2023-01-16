@@ -26,7 +26,7 @@ leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 #set background
 if [ -x "$(command -v feh)" ]; then
-  feh --bg-fill $HOME/.screenlayout/wallpapers/hor/0.jpg $HOME/.screenlayout/wallpapers/vert/0.jpg
+  feh --bg-fill $HOME/.screenlayout/wallpapers/hor/1.jpg $HOME/.screenlayout/wallpapers/vert/0.jpg
 fi
 
 index=0
